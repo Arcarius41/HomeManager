@@ -1,10 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
+const helmet = require('helmet'); // Add this line
 const { Pool } = require('pg');
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.use(helmet()); // Add this line
 app.use(cors());
 app.use(express.json());
 
@@ -28,6 +30,11 @@ app.post('/api/register', async (req, res) => {
 
 app.get('/api/hello', (req, res) => {
   res.send({ message: 'Hello from the backend!' });
+});
+
+// Add a basic route to verify deployment
+app.get('/', (req, res) => {
+  res.send('Welcome to the Home Manager App!');
 });
 
 app.listen(port, () => {
