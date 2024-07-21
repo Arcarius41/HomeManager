@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcrypt');
-const helmet = require('helmet'); // Add this line
+const helmet = require('helmet');
 const { Pool } = require('pg');
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(helmet()); // Add this line
+app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
