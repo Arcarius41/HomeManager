@@ -24,6 +24,7 @@ app.post('/api/register', async (req, res) => {
     );
     res.status(201).send({ message: 'User registered successfully', user: result.rows[0] });
   } catch (err) {
+    console.error('Error registering user:', err); // Detailed error logging
     res.status(500).send({ error: 'Error registering user' });
   }
 });
